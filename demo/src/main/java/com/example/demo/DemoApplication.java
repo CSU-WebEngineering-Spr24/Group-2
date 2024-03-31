@@ -42,8 +42,8 @@ public class DemoApplication {
 			try {
 				ObjectMapper mapper = new ObjectMapper();
 				Map<String, Object> fullResponse = mapper.readValue(response.getBody(), Map.class);
-				List<String> factions = (List<String>) fullResponse.get("factions");
-				return Map.of("factions", factions);
+				List<String> sets = (List<String>) fullResponse.get("sets");
+				return Map.of("sets", sets);
 			} catch (Exception e) {
 				System.out.println("Error parsing JSON: " + e.getMessage());
 			}
