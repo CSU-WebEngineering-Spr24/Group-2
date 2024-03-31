@@ -32,6 +32,16 @@ public class DemoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to retrieve information");
         }
     }
+      @GetMapping("/card/{name}")
+    public ResponseEntity<?> getSingleCard(@PathVariable String name) {
+        List<Map<String, Object>> cardInfo = demoApplication.getSingleCardInfo(name);
+
+        if (!cardInfo.isEmpty()) {
+            return ResponseEntity.ok(cardInfo);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Card not found");
+        }
+    }
 
     
 }
