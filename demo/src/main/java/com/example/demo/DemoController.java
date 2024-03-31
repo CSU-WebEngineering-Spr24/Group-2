@@ -24,10 +24,10 @@ public class DemoController {
 
     @GetMapping("/info")
     public ResponseEntity<?> getInfo() {
-        Map<String, List<String>> factionsInfo = demoApplication.getInfo();
+        Map<String, List<String>> setsInfo = demoApplication.getInfo();
 
         if (!factionsInfo.isEmpty()) {
-            return ResponseEntity.ok(factionsInfo);
+            return ResponseEntity.ok(setsInfo);
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to retrieve information");
         }
