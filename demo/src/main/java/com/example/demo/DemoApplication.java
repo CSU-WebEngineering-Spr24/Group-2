@@ -52,6 +52,7 @@ public class DemoApplication {
 		}
 		return Map.of(); // Return an empty map in case of failure
 	}
+
 	public List<Map<String, Object>> getSingleCardInfo(String cardName) {
         String url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/" + cardName;
 
@@ -78,5 +79,4 @@ public class DemoApplication {
         }
         return List.of(); // Return an empty list in case of failure
     }
-	
 }
