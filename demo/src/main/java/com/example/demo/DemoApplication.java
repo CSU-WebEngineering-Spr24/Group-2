@@ -106,4 +106,31 @@ public class DemoApplication {
 		}
 		return List.of(); // Return an empty list in case of failure
 	}
+   
+        public List<Map<String, Object>> searchCardByName(String name) {
+		String url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/search/" + name;
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-RapidAPI-Key", apiKey);
+
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+
+		if (response.getStatusCode().is2xxSuccessful()) {
+			try {
+				ObjectMapper mapper = new ObjectMapper();
+				List<Map<String, Object>> cardsList = mapper.readValue(response.getBody(), List.class);
+				if (!cardsList.isEmpty()) {
+					return cardsList;
+				}
+			} catch (Exception e) {
+				System.out.println("Error parsing JSON for card search: " + e.getMessage());
+			}
+		} else {
+			System.out.println("Error accessing Card Search Endpoint. Status code: " + response.getStatusCodeValue());
+		}
+		return List.of(); // Return an empty list in case of failure
+	}
 }
