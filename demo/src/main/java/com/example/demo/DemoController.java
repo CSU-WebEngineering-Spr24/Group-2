@@ -42,5 +42,16 @@ public class DemoController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Card not found");
         }
-    }    
+    }
+
+    @GetMapping("/set/{set}")
+    public ResponseEntity<?> getCardsInSet(@PathVariable String set) {
+        List<Map<String, Object>> cardsInSet = demoApplication.getCardsInSet(set);
+
+        if (!cardsInSet.isEmpty()) {
+            return ResponseEntity.ok(cardsInSet);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cards in set not found");
+        }
+    }
 }
