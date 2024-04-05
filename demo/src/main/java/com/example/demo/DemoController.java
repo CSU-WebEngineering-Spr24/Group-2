@@ -26,7 +26,7 @@ public class DemoController {
     public ResponseEntity<?> getInfo() {
         Map<String, List<String>> setsInfo = demoApplication.getInfo();
 
-        if (!factionsInfo.isEmpty()) {
+        if (!setsInfo.isEmpty()) {
             return ResponseEntity.ok(setsInfo);
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to retrieve information");
