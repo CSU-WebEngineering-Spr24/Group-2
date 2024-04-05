@@ -54,29 +54,56 @@ public class DemoApplication {
 	}
 
 	public List<Map<String, Object>> getSingleCardInfo(String cardName) {
-        String url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/" + cardName;
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-RapidAPI-Key", apiKey);
-
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
-        if (response.getStatusCode().is2xxSuccessful()) {
-            try {
-                ObjectMapper mapper = new ObjectMapper();
-                List<Map<String, Object>> cardsList = mapper.readValue(response.getBody(), List.class);
-                if (!cardsList.isEmpty()) {
-                    return cardsList;
-                }
-            } catch (Exception e) {
-                System.out.println("Error parsing JSON for single card info: " + e.getMessage());
-            }
-        } else {
-            System.out.println("Error accessing Single Card Endpoint. Status code: " + response.getStatusCodeValue());
+	        String url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/" + cardName;
+	
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.set("X-RapidAPI-Key", apiKey);
+	
+	        HttpEntity<String> entity = new HttpEntity<>(headers);
+	
+	        RestTemplate restTemplate = new RestTemplate();
+	        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+	
+	        if (response.getStatusCode().is2xxSuccessful()) {
+	            try {
+	                ObjectMapper mapper = new ObjectMapper();
+	                List<Map<String, Object>> cardsList = mapper.readValue(response.getBody(), List.class);
+	                if (!cardsList.isEmpty()) {
+	                    return cardsList;
+	                }
+	            } catch (Exception e) {
+	                System.out.println("Error parsing JSON for single card info: " + e.getMessage());
+	            }
+	        } else {
+	            System.out.println("Error accessing Single Card Endpoint. Status code: " + response.getStatusCodeValue());
+	        }
+	        return List.of(); // Return an empty list in case of failure
         }
-        return List.of(); // Return an empty list in case of failure
-    }
+
+        public List<Map<String, Object>> getCardsInSet(String set) {
+		String url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/" + set;
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("X-RapidAPI-Key", apiKey);
+
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+
+		if (response.getStatusCode().is2xxSuccessful()) {
+			try {
+				ObjectMapper mapper = new ObjectMapper();
+				List<Map<String, Object>> cardsList = mapper.readValue(response.getBody(), List.class);
+				if (!cardsList.isEmpty()) {
+					return cardsList;
+				}
+			} catch (Exception e) {
+				System.out.println("Error parsing JSON for cards in set: " + e.getMessage());
+			}
+		} else {
+			System.out.println("Error accessing Card Set Endpoint. Status code: " + response.getStatusCodeValue());
+		}
+		return List.of(); // Return an empty list in case of failure
+	}
 }
