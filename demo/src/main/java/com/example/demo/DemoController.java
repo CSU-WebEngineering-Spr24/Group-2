@@ -54,4 +54,15 @@ public class DemoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cards in set not found");
         }
     }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<?> searchCardByName(@PathVariable String name) {
+        List<Map<String, Object>> searchedCards = demoApplication.searchCardByName(name);
+
+        if (!searchedCards.isEmpty()) {
+            return ResponseEntity.ok(searchedCards);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No cards found for the search query");
+        }
+    }
 }
