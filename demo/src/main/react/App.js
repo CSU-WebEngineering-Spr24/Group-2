@@ -9,7 +9,7 @@ const router = createBrowserRouter([
       children: [
         {
           index: true,
-          element: <div> Empty Index</div>
+          element: <div> Hello </div>
         },
       ]
     },
