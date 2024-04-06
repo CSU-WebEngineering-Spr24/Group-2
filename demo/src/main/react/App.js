@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import HomePage from "./containers/HomePage";
 import ReactDom from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
       children: [
         {
           index: true,
-          element: <div> Hello </div>
+          element: <div> Empty index </div>
         },
       ]
     },
