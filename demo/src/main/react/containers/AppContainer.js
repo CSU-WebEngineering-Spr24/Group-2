@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState, useEffect} from 'react'
+import Nav from './components/nav/nav';
 import axios from 'axios';
-import Nav from './components/nav/Nav';
-import { Outlet } from 'react-router-dom';
-const AppContainer = () => {
+import { Outlet } from 'react-router-dom'
 
+const AppContainer = (props) => {
 
+    return(
+        <>
+            <Nav />
+            <Outlet />
 
-
-  return (
-    <>
-
-      <Nav />
-      <Outlet />
-      
-    </>
-  )
+        </>
+    )
 }
+
 export default AppContainer
