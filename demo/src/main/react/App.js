@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div> Empty Index</div>
+        element: <div> Hearthstone</div>
       },
     ]
   },
