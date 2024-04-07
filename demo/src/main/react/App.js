@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import ReactDom from "react-dom/client";
 import AppContainer from "/containers/AppContainer"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Cards from "./containers/containers/components/nav/Hearthstone/Cards";
+import Sets from "./containers/containers/components/nav/Hearthstone/Sets";
 
-//Taken from my original spring demo NASA API, however, will not work or display a webpage. Results in a white label error unsure how to proceed will talk with the professor.
 const router = createBrowserRouter([
   {
     path:"/",
@@ -13,6 +14,14 @@ const router = createBrowserRouter([
         index: true,
         element: <div> Hearthstone</div>
       },
+      {
+        path: "CardSearch",
+        element: <Cards />
+      },
+      {
+        path: "CardSets",
+        element: <Sets></Sets>
+      }
     ]
   },
 ])
