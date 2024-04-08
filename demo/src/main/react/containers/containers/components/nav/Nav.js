@@ -23,7 +23,7 @@ const Nav = () => {
             <li class="nav-item">
                 <a class = "nav-link" href="CardSets"> Sets </a>
             
-            
+            </li>
           </ul>
         </div>
       </div>
