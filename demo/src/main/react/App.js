@@ -4,6 +4,7 @@ import AppContainer from "/containers/AppContainer"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cards from "./containers/containers/components/nav/Hearthstone/Cards";
 import Sets from "./containers/containers/components/nav/Hearthstone/Sets";
+import Home from "./containers/containers/components/nav/Hearthstone/Home";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div> Hearthstone</div>
+        element: <div> <Home /> </div>
       },
       {
         path: "CardSearch",
