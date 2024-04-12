@@ -21,7 +21,7 @@ const Nav = () => {
               <a class="nav-link active" aria-current="page" href="CardSearch">Cards</a>
             </li>
             <li class="nav-item">
-                <a class = "nav-link" href="CardSets"> Sets </a>
+                <a class = "nav-link active"  aria-current="page" href="CardSets"> Sets </a>
             
             </li>
           </ul>
