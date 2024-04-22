@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Sets = () => {
@@ -37,15 +37,31 @@ const Sets = () => {
   useEffect(() => {
     fetchCardsInSet();
   }, [selectedSet]);
-    
-    return(
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-    )
-}
+
+  return (
+    <div>
+      <select style={{ margin: "2%", fontSize: "20px", padding: "1%" }} value={selectedSet} onChange={handleSetChange}>
+        <option value="">Select a Set</option>
+        {sets.map((set, index) => (
+          <option key={index} value={set}>
+            {set}
+          </option>
+        ))}
+      </select>
+      <br />
+      <div className="card-container" style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
+        {cards.map(card => (
+          <div className="card" key={card.cardId} style={{ width: "18rem", margin: "2%" }}>
+            {card.img && <img className="card-img-top" src={card.img} alt={card.name} height={250} />}
+            <div className="card-body">
+              <h5 className="card-title">{card.name}</h5>
+              <p><strong>Type:</strong> {card.type}&nbsp;&nbsp;<strong>Class:</strong> {card.playerClass}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Sets;
