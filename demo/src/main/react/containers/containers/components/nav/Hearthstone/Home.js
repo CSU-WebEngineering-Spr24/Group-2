@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 const Home = () =>{
     return(
       <>
+      <div style={{backgroundImage: `url(${'./Cardbacks.jpg'})`}}>
+
         <h1> Hearthstone Card Search
         </h1>
         <h3 class = "center">
@@ -13,6 +15,7 @@ const Home = () =>{
         <div class = "center">
           <iframe width="640px" height="390px" src= "https://www.youtube.com/embed/QdXl3QtutQI?si=x91tek9PGYthHP84"></iframe>
         </div>
+      </div>
       </>
 
     )

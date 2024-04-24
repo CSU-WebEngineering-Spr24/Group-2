@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 const Sets = () => {
   const [sets, setSets] = useState([]);
@@ -52,7 +54,7 @@ const Sets = () => {
       <div className="card-container" style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
         {cards.map(card => (
           <div className="card" key={card.cardId} style={{ width: "18rem", margin: "2%" }}>
-            {card.img && <img className="card-img-top" src={card.img} alt={card.name} height={250} />}
+            {card.img && <LazyLoadImage className="card-img-top" src={card.img} alt={card.name} height={250} />}
             <div className="card-body">
               <h5 className="card-title">{card.name}</h5>
               <p><strong>Type:</strong> {card.type}&nbsp;&nbsp;<strong>Class:</strong> {card.playerClass}</p>
