@@ -52,10 +52,6 @@ const Sets = () => {
         ))}
       </select>
       <br />
-      <div class = "hidden" style={{backgroundImage: `url(${'./image.png'})`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
-                      overflow: 'hidden'}}>
       <div className="card-container" style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
         {cards.map(card => (
           <div className="card" key={card.cardId} style={{ width: "18rem", margin: "2%" }}>
@@ -71,7 +67,6 @@ const Sets = () => {
     backgroundRepeat: "no-repeat",
     backgroundSize: "100%"}}>
       </div>
-    </div>
     </div>
   );
 };
