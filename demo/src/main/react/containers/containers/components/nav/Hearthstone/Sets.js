@@ -42,6 +42,7 @@ const Sets = () => {
 
   return (
     <div>
+      
       <select style={{ margin: "2%", fontSize: "20px", padding: "1%" }} value={selectedSet} onChange={handleSetChange}>
         <option value="">Select a Set</option>
         {sets.map((set, index) => (
@@ -51,6 +52,10 @@ const Sets = () => {
         ))}
       </select>
       <br />
+      <div class = "hidden" style={{backgroundImage: `url(${'./image.png'})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      overflow: 'hidden'}}>
       <div className="card-container" style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
         {cards.map(card => (
           <div className="card" key={card.cardId} style={{ width: "18rem", margin: "2%" }}>
@@ -62,6 +67,11 @@ const Sets = () => {
           </div>
         ))}
       </div>
+      <div style={{backgroundImage: `url(${'./background.png'})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100%"}}>
+      </div>
+    </div>
     </div>
   );
 };

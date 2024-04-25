@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+
 const Home = () =>{
     return(
       <>
-      <div style={{backgroundImage: `url(${'./Cardbacks.jpg'})`}}>
-
+      <div class = "hidden" style={{backgroundImage: `url(${'./image.png'})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      overflow: 'hidden'}}>
         <h1> Hearthstone Card Search
         </h1>
         <h3 class = "center">
