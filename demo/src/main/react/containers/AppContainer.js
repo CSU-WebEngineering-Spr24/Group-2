@@ -6,7 +6,7 @@ const AppContainer = () => {
 
 
 
-//Meant to act as the homepage eventually but for some reason will not display any information on the front end.
+
   return (
     <>
       <Nav />
