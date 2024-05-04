@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    //  @GetMapping(value = {"/", "/{x:[\\w\\-]+}", "/{x:^(?!api$).*$}/**/{y:[\\w\\-]+}" })
     @GetMapping(value = {"/", "/CardSearch", "/CardSets"})
     public String index(){
         return "index";
