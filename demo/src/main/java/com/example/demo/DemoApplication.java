@@ -77,7 +77,7 @@ public class DemoApplication {
 	        } else {
 	            System.out.println("Error accessing Single Card Endpoint. Status code: " + response.getStatusCodeValue());
 	        }
-	        return List.of(); // Return an empty list in case of failure
+	        return List.of();
         }
 
         public List<Map<String, Object>> getCardsInSet(String set) {
@@ -104,7 +104,7 @@ public class DemoApplication {
 		} else {
 			System.out.println("Error accessing Card Set Endpoint. Status code: " + response.getStatusCodeValue());
 		}
-		return List.of(); // Return an empty list in case of failure
+		return List.of();
 	}
    
         public List<Map<String, Object>> searchCardByName(String name) {
@@ -131,6 +131,6 @@ public class DemoApplication {
 		} else {
 			System.out.println("Error accessing Card Search Endpoint. Status code: " + response.getStatusCodeValue());
 		}
-		return List.of(); // Return an empty list in case of failure
+		return List.of();
 	}
 }
